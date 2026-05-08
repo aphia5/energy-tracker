@@ -3,9 +3,13 @@ const bcrypt   = require('bcryptjs');
 const path     = require('path');
 const fs       = require('fs');
 
-const DB_PATH = path.join(__dirname, 'data', 'energy.db');
-const dataDir = path.dirname(DB_PATH);
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+const isTest  = process.env.NODE_ENV === 'test';
+const DB_PATH = isTest ? ':memory:' : path.join(__dirname, 'data', 'energy.db');
+
+if (!isTest) {
+  const dataDir = path.join(__dirname, 'data');
+  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+}
 
 const db = new Database(DB_PATH);
 db.pragma('journal_mode = WAL');

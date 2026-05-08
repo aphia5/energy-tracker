@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "jest --coverage --forceExit"
+    "test": "cross-env NODE_ENV=test jest --coverage --forceExit --runInBand"
   },
   "jest": {
     "testEnvironment": "node",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "nodemon": "^3.1.0",
-    "supertest": "^6.3.4"
+    "supertest": "^6.3.4",
+    "cross-env": "^7.0.3"
   }
 }
