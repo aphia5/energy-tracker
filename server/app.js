@@ -1,3 +1,4 @@
+// SEN5002 - Student Energy Tracker - Aphia Strouse-Zukosky
 const express = require('express');
 const cors    = require('cors');
 const app     = express();
