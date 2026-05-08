@@ -1,7 +1,7 @@
 const express = require('express');
 const cors    = require('cors');
 const app     = express();
-
+// Student Energy Tracker - SEN5002 Agile Development and DevOps
 app.use(cors());
 app.use(express.json());
 
